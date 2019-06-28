@@ -43,12 +43,12 @@ table{
 <form action="AddEmployeeServlet" method="post">
 <table align="center" cellpadding = "15">
 
-<!----- Employee Id ---------------------------------------------------------->
+<!----- Employee Id
 <tr>
 <td>EMPLOYEE ID</td>
 <td><input type="text"  name="empcode" maxlength="5"/>
 </td>
-</tr>
+</tr>-->
  
 <!----- Name ---------------------------------------------------------->
 <tr>
@@ -71,10 +71,9 @@ table{
 <td>DEPARTMENT</td>
 <td>
 <select name="department">
-<option value="null">SELECT</option>
-<option value="IT">IT</option>
-<option value="HR">HR</option>
-<option value="JAVA">JAVA</option>
+<option value='1'>IT</option>
+<option value='2'>HR</option>
+<option value='3'>JAVA</option>
 </select>
 </td>
 </tr>
@@ -83,7 +82,7 @@ table{
 <tr>
 <td>STATUS</td>
 <td>
-Intern <input type="radio" name="estatus" value="Intern" />
+Intern <input type="radio" name="estatus" value="Intern"/>
 Fresher <input type="radio" name="estatus" value="fresher" />
 Worker <input type="radio" name="estatus" value="worker" />
 Manager <input type="radio" name="estatus" value="manager" />

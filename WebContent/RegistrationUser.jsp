@@ -27,6 +27,8 @@
     <input id="password_two" name="password_two" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Confirm password" required>
     
     <button type="submit">Register</button>
+    
+    <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
   </div>
 </form>
 </body>

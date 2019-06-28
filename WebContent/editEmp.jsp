@@ -46,14 +46,14 @@ table{
  <tr><!----- Employee Id ---------------------------------------------------------->
 						<td>EMPLOYEE ID</td>
 						<%
-							String id = request.getParameter("empcode");
+							String id = request.getParameter("empid");
 						    String name=request.getParameter("ename");
 						    String mobile=request.getParameter("mobileno");
 						    String dept=request.getParameter("department");
 						    String status=request.getParameter("estatus");
 						    String email=request.getParameter("emailid");
 						%>
-						<td><input type="text" value=<%=id%> name="empcode" maxlength="5" readonly/></td>
+						<td><input type="text" value=<%=id%> name="empid" maxlength="5" readonly/></td>
 					</tr>
 
 <!----- Name ---------------------------------------------------------->
@@ -67,7 +67,7 @@ table{
 <tr>
 <td>MOBILE NUMBER</td>
 <td>
-<input type="text" value=<%=id%> name="mobileno" pattern="[0-9]{10}" title="invalid mobile number" required maxlength="10" />
+<input type="text" value=<%=mobile%> name="mobileno" pattern="[0-9]{10}" title="invalid mobile number" required maxlength="10" />
 (10 digit number)
 </td>
 </tr>
@@ -78,10 +78,11 @@ table{
 <td>
 <select name="department">
 <option><%=dept%></option>
-<option value="IT">IT</option>
-<option value="HR">HR</option>
-<option value="JAVA">JAVA</option>
+<option value='1'>1</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
 </select>
+(1=IT , 2=HR, 3=JAVA)
 </td>
 </tr>
 
@@ -89,24 +90,23 @@ table{
 <tr>
 <td>STATUS</td>
 <td>
-Intern <input type="radio" name="estatus" value="Intern" />
-Fresher <input type="radio" name="estatus" value="fresher" />
-Worker <input type="radio" name="estatus" value="worker" />
-Manager <input type="radio" name="estatus" value="manager" />
+Intern <input type="radio" name="estatus" value="Intern" required />
+Fresher <input type="radio" name="estatus" value="fresher" required />
+Worker <input type="radio" name="estatus" value="worker" required/>
+Manager <input type="radio" name="estatus" value="manager" required/>
 </td>
 </tr>
 
 <!----- Email Id ---------------------------------------------------------->
 <tr>
 <td>EMAIL ID</td>
-<td><input type="text" value="<%=id%>" name="emailid" required maxlength="50" /></td>
+<td><input type="text" value="<%=email%>" name="emailid" required maxlength="50" /></td>
 </tr>
  
 <!----- Submit and Reset ------------------------------------------------->
 <tr>
 <td colspan="2" align="center">
 <input type="submit" value="Submit">
-<input type="reset" value="Reset">
 </td>
 </tr>
 </table>

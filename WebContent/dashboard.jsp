@@ -20,10 +20,10 @@
 }
 
 .container {
-	width: 900px;
+	width: 1000px;
 	height: 338px;
 	position: absolute;
-	left: 20%;
+	left: 18%;
 	top: 25%;
 	border: 2px solid black;
 }
@@ -82,7 +82,7 @@ tbody tr {
 		<sql:setDataSource var="snapshot" driver="com.mysql.cj.jdbc.Driver"
 			url="jdbc:mysql://localhost/world" user="root" password="chethanbs@2610" />
 		<sql:query dataSource="${snapshot}" var="result">
-         SELECT * from reg_table;
+         select e.emp_id, e.name, e.mobile, d.dept, e.status, e.email from employee_table e inner join department_table d on e.dept=d.id order by e.emp_id;
       </sql:query>
       <div class="space">
   <table>
@@ -93,28 +93,29 @@ tbody tr {
       <th width ="14%">Mobile</th>
       <th width ="14%">Department</th>
       <th width ="14%">Status</th>
-      <th width ="14%">Email Id</th>
+      <th width ="20%">Email Id</th>
       <th width ="14%">Action</th>
     </tr>
   </thead>
     <tbody>
     <c:forEach var="row" items="${result.rows}">
     <tr>
-					<td width ="14%"><c:out value="" /></td>
-					<td width ="14%"><c:out value="" /></td>
-					<td width ="14%"><c:out value="" /></td>
-					<td width ="14%"><c:out value="" /></td>
-					<td width ="14%"><c:out value="" /></td>
-					<td width ="14%"><c:out value="" /></td>
+					<td width ="14%"><c:out value="${row.emp_id}" /></td>
+					<td width ="14%"><c:out value="${row.name}" /></td>
+					<td width ="14%"><c:out value="${row.mobile}" /></td>
+					<td width ="14%"><c:out value="${row.dept}" /></td>
+					<td width ="14%"><c:out value="${row.status}" /></td>
+					<td width ="20%"><c:out value="${row.email}" /></td>
 					
-	                <td><select onChange="window.location.href=this.value">
+	                <td width="14%"><select onChange="window.location.href=this.value">
                     <option>Select Action</option>
-                    <option value="editEmp.jsp">Edit</option>
-                    <option value="deleteEmployee.jsp">Delete</option>
-                    </select></td>
-</tr>
-	</c:forEach>
-  </tbody>
+                    <option value="editEmp.jsp?empid=<c:out value='${row.emp_id}' />&ename=<c:out value='${row.name}' />&mobileno=<c:out value='${row.mobile}' />&department=<c:out value='${row.dept}' />&estatus=<c:out value='${row.status}' />&emailid=<c:out value='${row.email}' />">Edit</option>
+                    <option value="DeleteEmployee?employeeid=<c:out value='${row.emp_id}' />">Delete</option>
+                    </select>
+                    </td>
+   </tr>
+ </c:forEach>
+ </tbody>
 </table>
 </div>
 </div> 
